@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>issues</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- list of all issued books -->
+  {% include 'navbar.html' %}
+    <h2>My Issued Books</h2>
+    <ul class="list-group">
+      {% for issue in issues %}
+        <li class="list-group-item">
+          Book ID: {{ issue.book_id }} | 
+          Issued on: {{ issue.issue_date.strftime('%d-%m-%Y %H:%M') }} | 
+          Returned on: {% if issue.return_date %}{{ issue.return_date.strftime('%d-%m-%Y %H:%M') }}{% else %}Not returned yet{% endif %}
+          
+          {% if not issue.return_date %}
+            <form method="POST" action="{{ url_for('return_book', issue_id=issue.id) }}" class="d-inline">
+              <button type="submit" class="btn btn-sm btn-warning">Return Now</button>
+            </form>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
