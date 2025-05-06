@@ -4,3 +4,4 @@ datetime
 uuid
 Flask-SQLAlchemy
 gunicorn
+Jinja2<3.1
