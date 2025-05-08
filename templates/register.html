@@ -23,20 +23,49 @@
             {% endfor %}
           {% endif %}
         {% endwith %}
-        <h2>Create Your Account</h2>
-        <form method="POST" action="/register">
-            <div class="mb-3">
-                <label for="name" class="form-label">Username</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter username" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Register/Signup</button>
-        </form>
-        <p class="mt-3 text-center">Already have an account? <a href="/login">Login here</a></p>
-    </div>
+        <div class="right-section">
+          <div class="container">
+              <div class="card-body">
+                  
+                     <div class="signup-box">
+                        <h4 class="card-title">Signup</h4>
+                        <form method="POST" action="/register">
+                          
+                              <div class="input-box">
+                                  <span class="icon">
+                                      <ion-icon name="person"></ion-icon>
+                                  </span>
+                                  <label for="name" class="form-label"></label>
+                                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
+                                  
+                              </div>
+                              <div class="input-box">
+                                  <span class="icon">
+                                      <ion-icon name="mail"></ion-icon>
+                                  </span>
+                                  <label for="email" class="form-label"></label>
+                                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                                  
+                              </div>
+
+                              <div class="input-box">
+                                  <span class="icon">
+                                      <ion-icon name="lock-closed"></ion-icon>
+                                  </span>
+                                  <label for="password" class="'form-label"></label>
+                                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                                  
+                              </div>
+                              <!-- <div class="remember-me">
+                                  <label><input type="checkbox" class="me-2">Remember me</label>
+                                  
+                              </div> -->
+                              
+                              <button type="submit" class="signup-btn">Signup</button>
+                      
+                     </div>
+              </div>
+          </div>
     <script>
         // Auto-dismiss flash message after 3 seconds 
         setTimeout(function() {

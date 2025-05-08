@@ -1,53 +1,60 @@
 body {
-    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    position: relative;
+    background-color: black;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: auto;
 }
 
-.card {
-    width: 350px;
-    box-shadow: 0 4px 24px rgba(156, 63, 63, 0.1);
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(135deg, #35457b, #5d3b86, #2d2d44, #a777e3, #6e8efb);
+
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease-in-out infinite;
+    filter: blur(30px); /*blur radius*/
+    width: 100vw;
+    height: 100vh;
 }
-.login-container {
-    width: 350px;
-}
+
 
 .navbar{
-    background: #7d97ec;
+    background: transparent;
     padding: 1rem 2rem;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+
 }
-.register-container{
-    max-width: 400px;
-    margin: 60px auto;
-    background: #7d97ec;
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+.home .navbar{
+    display: none !important;
 }
-.register-container h2 {
-    margin-bottom: 1.5rem;
-    color: #6e8efb;
+.register .navbar{
+    display: none !important;
 }
-.form-control:focus {
-    border-color: #a777e3;
-    box-shadow: 0 0 0 0.2rem rgba(167,119,227,.25);
+.welcome-effect span{
+    transition: color 0.2s, text-shadow 0.2s;
+    color: #e6c8c8;
+    text-shadow: none;
+    cursor: pointer;
 }
-.btn-primary {
-    background: #6e8efb;
-    border: none;
+
+.welcome-effect span:hover{
+    color: #fff;
+    text-shadow: 0 0 8px #fff, 0 0 16px #e6c8c8;
 }
 .btn-primary:hover {
     background: #a777e3;
 }
 h2{
-    /* color: #6e8efb;
-    font-size: 2rem; */
     margin-bottom: 1rem;
 }
-
+.signup-box .card-title{
+    color: #fff;
+}
 .split-container {
     min-height: 80vh;
     display: flex;
@@ -58,14 +65,12 @@ h2{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #7d97ec;
-  border-radius: 10px 0 0 10px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+.left-section h2{
+    color: #e6c8c8 !important;
 }
 .right-section {
-  background: #a4b5ee;
-  border-radius: 0 10px 10px 0;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
   padding: 2rem;
   margin-top: 2rem;
   margin-left: 2rem;
@@ -74,7 +79,288 @@ h2{
   .split-container {
     flex-direction: column;
   }
-  .left-section, .right-section {
-    border-radius: 10px 10px 0 0 !important;
-  }
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-size:cover ;
+    background-position: center;
+    backdrop-filter: blur(10px);
+}
+
+.signup-box{
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background:transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius:20px;
+    justify-content:center;
+    align-items: center;
+}
+.signup-box {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+h4{
+    font-size: 2rem;
+    color: #822d2d;
+    text-align:center;
+    margin: 10px 0;
+}
+
+.input-box{
+    width: 340px;
+    margin: 30px 25px;
+    border-bottom: 2px solid #fff;
+    position: relative;
+    display: flex;
+    
+}
+.input-box input::placeholder{
+    color: #e6c8c8;
+    opacity: 1;
+}
+.input-box input:focus {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    position: relative;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.input-box {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.input-box input:focus {
+    transform: scale(1.05); /* Reduced zoom effect */
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    /* color: #fff; */
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 6px;
+    color:#fff;
+    font-size:1.3rem;
+    line-height: 55px;
+}
+
+.form-control:focus {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.remember-me, .already-acc ,.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+.already-acc a{
+    color: #fff;
+    text-decoration: none;   
+}
+
+.already-acc a:hover{
+    text-decoration: underline;
+}
+.signup-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Restored margin for original design */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2d2d44;
+    border: none;
+    width: 50%;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.login-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Restored margin for original design */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2d2d44;
+    border: none;
+    width: 50%;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.login-btn:hover {
+    background-color: #fff;
+    color: #4a557c;
+}
+.signup-btn:hover {
+    background-color: #fff;
+    color: #4a557c;
+}
+
+.register-container .signup-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Restored margin for original design */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2d2d44;
+    border: none;
+    width: 50%;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.register-container .signup-btn:hover {
+    background-color: #fff;
+    color: #4a557c;
+}
+.custom-dashboard-card {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.custom-dashboard-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px rgba(80, 0, 120, 0.2);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #e6c8c8;
+    margin-bottom: 10px;
+}
+
+.custom-dashboard-card .card-title {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.custom-dashboard-card .card-text {
+    color: #e6c8c8;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.custom-card-btn {
+    padding: 8px 24px;
+    border-radius: 40px;
+    background: #2d2d44;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.custom-card-btn:hover {
+    background: #fff;
+    color: #2d2d44;
+    text-decoration: none;
+}
+
+.login-box {
+    position: relative;
+    width: 400px;
+    height: 350px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.login-box .card-title {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2d2d44;
+    border: none;
+    width: 50%;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #fff;
+    color: #4a557c;
+}
+
+.login .navbar{
+    display: none !important;
+
 }

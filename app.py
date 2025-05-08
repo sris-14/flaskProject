@@ -70,13 +70,20 @@ class Issues(db.Model):
 with app.app_context():
     db.create_all() 
 
-     
+@app.route('/library')
+def library_dashboard():
+    # if not session.get('jwt_token'):
+    #     flash('Please log in to access the library dashboard.', 'warning')
+    #     return redirect(url_for('login_user'))
+    return render_template('library.html')     
+
 # route for signing up 
 @app.route('/register', methods=['GET', 'POST'])
 def signup_user():
     if request.method == 'POST':
         # get a form data 
         name = request.form['name']
+        email = request.form['email']
         password = request.form['password']
         hashed_pwd = generate_password_hash(password)
 
@@ -84,7 +91,7 @@ def signup_user():
         db.session.add(new_user)
         db.session.commit()
         flash('User registered successfully!', 'success')
-        return redirect(url_for('signup_user'))
+        return redirect(url_for('library_dashboard'))
     else:
         return render_template('register.html')
 
@@ -100,7 +107,7 @@ def login_user():
             token = jwt.encode({'public_id': user.public_id, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60)}, app.config['SECRET_KEY'], "HS256")
             session['jwt_token'] = token
             flash('Login successful!', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('library_dashboard'))
         flash('Invalid credentials', 'danger')
     return render_template('login.html')
 
@@ -117,6 +124,7 @@ def get_all_users():
        user_data['public_id'] = user.public_id 
        user_data['name'] = user.name
        user_data['password'] = user.password
+       user_data['email'] = user.email
        user_data['admin'] = user.admin
      
        result.append(user_data)  
@@ -130,8 +138,8 @@ def add_book(current_user):
         name = request.form['name']
         author = request.form['author']
         publisher = request.form['publisher']
-        book_prize = request.form['book_prize']
-        new_book = Books(name=name, author=author, publisher=publisher, book_prize=book_prize, user_id=current_user.id)
+        book_price = request.form['book_price']
+        new_book = Books(name=name, author=author, publisher=publisher, book_price=book_price, user_id=current_user.id)
         db.session.add(new_book)
         db.session.commit()
         flash('Book added successfully!', 'success')
@@ -202,7 +210,7 @@ def delete_book(current_user, book_id):
 def logout():
     session.pop('jwt_token', None)
     flash('Logged out successfully!', 'success')
-    return redirect(url_for('login_user'))
+    return redirect(url_for('home'))
 
  
 if  __name__ == '__main__': 
