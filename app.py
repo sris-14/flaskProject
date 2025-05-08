@@ -72,9 +72,6 @@ with app.app_context():
 
 @app.route('/library')
 def library_dashboard():
-    # if not session.get('jwt_token'):
-    #     flash('Please log in to access the library dashboard.', 'warning')
-    #     return redirect(url_for('login_user'))
     return render_template('library.html')     
 
 # route for signing up 
