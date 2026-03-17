@@ -5,15 +5,6 @@ Welcome to my simple To-Do application.
 
 If you're someone who likes keeping tasks organized, this little app helps you add, manage, and remove tasks easily.
 
-Try it here 👇
-🔗 Live App: https://todo-xx8f.onrender.com/
-
-🎥 See It In Action
-
-Here’s a quick demo of the application:
-
-Or you can embed it like this:
-
 ✨ What You Can Do
 
 ✔️ Add tasks
@@ -37,14 +28,12 @@ While learning web development, I wanted to build something practical and simple
 
 This project helped me understand:
 
-1.CRUD operations
-2.Handling user actions dynamically
-3.Deploying applications online
+* CRUD operations
+* Handling user actions dynamically
+* Deploying applications online
 
 💡 Try It Yourself
 
-Click the link below and start adding your tasks.
-
-👉 https://todo-xx8f.onrender.com/
+Click the link mentioned in the description and start adding your tasks.    
 
 ⭐ If you like the project, feel free to star the repo!
