@@ -1,3 +1,20 @@
+🌱 Flask Practice Project    
+I’m still exploring how things actually work — so this is more of a learning playground than a polished project.    
+
+Library app        
+This is a simple library app.    
+
+## Tech stack     
+
+1. HTML
+2. CSS
+3. FLASK
+* Render (deployment)
+  
+## 🚀 Live Demo     
+
+[LIB_APP](https://flaskproject-59vg.onrender.com/)
+
 📝 To-Do App
 
 Hey there 👋
@@ -24,15 +41,13 @@ Render (Deployment)
 
 🚀 Why I Built This
 
-While learning web development, I wanted to build something practical and simple that demonstrates how basic task management works in a web application.
-
 This project helped me understand:
 
 * CRUD operations
 * Handling user actions dynamically
 * Deploying applications online
 
-💡 Try It Yourself
+## Demo
 
 Click the link mentioned: [TODO ](https://todo-xx8f.onrender.com/).    
 
