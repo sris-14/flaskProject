@@ -1,7 +1,7 @@
-🌱 Flask Practice Project    
+# 🌱 Flask Practice Project    
 I’m still exploring how things actually work — so this is more of a learning playground than a polished project.    
 
-Library app        
+### Library app        
 This is a simple library app.    
 
 ## Tech stack     
@@ -15,7 +15,7 @@ This is a simple library app.
 
 [LIB_APP](https://flaskproject-59vg.onrender.com/)
 
-📝 To-Do App
+### To-Do App
 
 Hey there 👋
 Welcome to my simple To-Do application.
